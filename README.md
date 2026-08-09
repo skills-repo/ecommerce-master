@@ -24,6 +24,31 @@
 | 🏪 前端搭建 | `storefront-builder` | 电商前端最佳实践：组件模式、SEO、移动适配、后端集成 | [衍生](https://skills.sh/medusajs/medusa-agent-skills/storefront-best-practices) |
 | 🛒 店铺管理 | `shopify-manager` | Shopify 产品管理：GraphQL API 创建/更新/批量导入 | [衍生](https://skills.sh/jezweb/claude-skills/shopify-products) |
 
+## 安装
+
+整库安装（推荐）：
+
+```bash
+npx skills add skills-repo/ecommerce-master -g -y
+```
+
+单技能安装（将 `<skill>` 替换为子技能目录名，例如 `cross-border-expansion`）：
+
+```bash
+npx skills add skills-repo/ecommerce-master@cross-border-expansion -g -y
+```
+
+## 子技能目录
+
+本仓库每个子技能可单独安装，路径长期稳定、不会改名：
+
+| 子技能 | 安装命令 | 适用 |
+|--------|----------|------|
+| cross-border-expansion | `npx skills add skills-repo/ecommerce-master@cross-border-expansion -g -y` | 跨境电商扩张：市场评分、物流、税务合规、支付本地化 |
+| payment-integration | `npx skills add skills-repo/ecommerce-master@payment-integration -g -y` | Stripe 支付集成：订阅、发票、催款、收入分析、风控 |
+| storefront-builder | `npx skills add skills-repo/ecommerce-master@storefront-builder -g -y` | 电商前端最佳实践：组件、SEO、移动适配、后端集成 |
+| shopify-manager | `npx skills add skills-repo/ecommerce-master@shopify-manager -g -y` | Shopify 产品管理：GraphQL API、变体、CSV 批量导入 |
+
 ## 快速开始
 
 ```bash
