@@ -53,6 +53,10 @@ metadata:
 - 接入 Medusa/Shopify 等电商后端
 - 电商组件开发参考
 
+## 相关参考（Playbook）
+
+更完整的组件实现顺序决策树、渲染策略选型矩阵、性能预算门槛（LCP/INP/CLS）、可访问性清单与 i18n 落地要点，见 [`references/storefront-launch-playbook.md`](../../references/storefront-launch-playbook.md)。
+
 ## 限制
 
 - 框架示例以 React/TypeScript 为主，但模式适用于所有现代框架

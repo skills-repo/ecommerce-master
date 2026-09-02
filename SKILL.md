@@ -1,13 +1,15 @@
 ---
 name: ecommerce-master
 description: "电商全链路 AI Agent 技能库：跨境扩张策略（市场评分/税务合规/物流/支付本地化）、Stripe 支付集成（订阅/发票/风控/对账）、Shopify 产品管理（GraphQL/CSV 批量）、电商前端搭建（组件/SEO/移动适配）。当用户要做跨境电商选品与落地、接入 Stripe 订阅与催款、批量管理 Shopify 商品、或搭建高转化电商前端时调用本技能，并据路由表进入对应子技能。"
+agent_created: true
 metadata:
   architecture: superpower
   category: 电商
+  difficulty: 进阶
   platform: skills-repo
-  version: 1.0.0
+  version: 1.1.0
   created: 2026-08-09
-  updated: 2026-08-09
+  updated: 2026-09-02
 tags:
   - ecommerce
   - cross-border
@@ -33,12 +35,27 @@ tags:
 
 ## 能力索引（渐进式路由）
 
+本技能采用渐进式加载。`SKILL.md` 仅作路由，**按需**读取下列条目，避免一次性占满上下文。
+
+### 深层 playbook（`references/`，决策与上线门槛）
+
+| 任务 | 读取 | 关键词（grep 线索） |
+|------|------|---------------------|
+| 跨境合规：注册义务决策树、清关与 VAT 申报路径选型、落地成本建模、各市场阈值速查 | `references/cross-border-compliance.md` | `VAT` `IOSS` `阈值` `清关` `HS 编码` `落地成本` |
+| 支付上线清单：接入方式决策树、Webhook 验签、争议退款、收入指标口径、测试场景矩阵 | `references/payment-integration-checklist.md` | `Checkout` `webhook` `验签` `dispute` `MRR` `对账` |
+| 前端上线手册：组件优先级决策树、渲染策略选型、性能预算、可访问性、i18n | `references/storefront-launch-playbook.md` | `JSON-LD` `Product schema` `LCP` `INP` `安全区` `i18n` |
+
+### 细粒度子技能（`skills/`，可独立安装调用）
+
 | 任务 | 进入 | 关键词（grep 线索） |
 |------|------|---------------------|
 | 跨境扩张策略 | `skills/cross-border-expansion` | cross-border, 跨境, 市场评分, VAT, IOSS, 物流, 关税 |
 | 支付集成 | `skills/payment-integration` | stripe, 订阅, 发票, 催款, dunning, 对账, 风控, Radar |
 | 店铺管理 | `skills/shopify-manager` | shopify, 产品, GraphQL, 变体, CSV 导入, 批量上架 |
 | 前端搭建 | `skills/storefront-builder` | storefront, 前端, 组件, SEO, 结构化数据, 移动适配, 转化 |
+
+> **路由规则**：要判断「该不该做、代价多少、上线前还差什么」→ 读 `references/`；
+> 要具体平台的具体写法与命令 → 调 `skills/`；要对现有商品流下客观判断 → 先跑 `scripts/`。
 
 ## 内置脚本（确定性、可复现）
 
@@ -53,14 +70,6 @@ tags:
 python3 scripts/validate_product_feed.py --feed export/products.csv
 python3 scripts/validate_product_feed.py            # 仅自检规则模板（应 0 错误）
 ```
-
-## 参考手册（references/）
-
-需要子技能装不下的决策增量时读取：
-
-- `references/cross-border-compliance.md` — 按国税务/海关阈值、清关路径、落地成本建模
-- `references/payment-integration-checklist.md` — Stripe 接入清单、Webhook 验签、争议退款
-- `references/storefront-launch-playbook.md` — 组件优先级、SEO 结构化数据、性能预算、i18n
 
 ## 模板资源（assets/）
 

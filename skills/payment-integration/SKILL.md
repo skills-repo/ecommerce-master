@@ -55,6 +55,10 @@ metadata:
 - 支付失败催款挽回
 - 收入数据分析和 MRR 追踪
 
+## 相关参考（Playbook）
+
+更完整的接入方式决策树、Webhook 签名校验与争议退款流程、收入指标统一口径、上线前测试场景矩阵与可勾选清单，见 [`references/payment-integration-checklist.md`](../../references/payment-integration-checklist.md)。
+
 ## 限制
 
 - 需要 Stripe 账号和 API Key

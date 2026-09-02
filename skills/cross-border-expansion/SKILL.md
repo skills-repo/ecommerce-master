@@ -52,6 +52,10 @@ metadata:
 - 评估跨境物流和税务成本
 - 多平台卖家优化国际布局
 
+## 相关参考（Playbook）
+
+更完整的「是否触发 VAT / 销售税注册义务」决策树、清关与申报路径选型矩阵、各市场阈值速查表与落地成本建模公式，见 [`references/cross-border-compliance.md`](../../references/cross-border-compliance.md)。
+
 ## 限制
 
 - 税率和法规变化频繁，最终决策需咨询当地税务顾问

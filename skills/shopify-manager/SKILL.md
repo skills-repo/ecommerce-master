@@ -54,6 +54,11 @@ metadata:
 - 从其他平台迁移产品到 Shopify
 - 产品图片和 SEO 信息管理
 
+## 相关参考（Playbook）
+
+批量导入前先用 `scripts/validate_product_feed.py` 校验商品流（规则见 `assets/product-feed-rules.json`）；
+校验命令、缺陷判定与「商品数据进生产前」的上线清单见 [`references/storefront-launch-playbook.md`](../../references/storefront-launch-playbook.md) 第 3.4 节与第 7 节。
+
 ## 限制
 
 - 需要 Admin API access token（通过 shopify-setup 配置）
