@@ -41,18 +41,18 @@ tags:
 
 | 任务 | 读取 | 关键词（grep 线索） |
 |------|------|---------------------|
-| 跨境合规：注册义务决策树、清关与 VAT 申报路径选型、落地成本建模、各市场阈值速查 | `references/cross-border-compliance.md` | `VAT` `IOSS` `阈值` `清关` `HS 编码` `落地成本` |
-| 支付上线清单：接入方式决策树、Webhook 验签、争议退款、收入指标口径、测试场景矩阵 | `references/payment-integration-checklist.md` | `Checkout` `webhook` `验签` `dispute` `MRR` `对账` |
-| 前端上线手册：组件优先级决策树、渲染策略选型、性能预算、可访问性、i18n | `references/storefront-launch-playbook.md` | `JSON-LD` `Product schema` `LCP` `INP` `安全区` `i18n` |
+| 跨境合规：注册义务决策树、清关与 VAT 申报路径选型、落地成本建模、各市场阈值速查 | [references/cross-border-compliance.md](references/cross-border-compliance.md) | `VAT` `IOSS` `阈值` `清关` `HS 编码` `落地成本` |
+| 支付上线清单：接入方式决策树、Webhook 验签、争议退款、收入指标口径、测试场景矩阵 | [references/payment-integration-checklist.md](references/payment-integration-checklist.md) | `Checkout` `webhook` `验签` `dispute` `MRR` `对账` |
+| 前端上线手册：组件优先级决策树、渲染策略选型、性能预算、可访问性、i18n | [references/storefront-launch-playbook.md](references/storefront-launch-playbook.md) | `JSON-LD` `Product schema` `LCP` `INP` `安全区` `i18n` |
 
 ### 细粒度子技能（`skills/`，可独立安装调用）
 
 | 任务 | 进入 | 关键词（grep 线索） |
 |------|------|---------------------|
-| 跨境扩张策略 | `skills/cross-border-expansion` | cross-border, 跨境, 市场评分, VAT, IOSS, 物流, 关税 |
-| 支付集成 | `skills/payment-integration` | stripe, 订阅, 发票, 催款, dunning, 对账, 风控, Radar |
-| 店铺管理 | `skills/shopify-manager` | shopify, 产品, GraphQL, 变体, CSV 导入, 批量上架 |
-| 前端搭建 | `skills/storefront-builder` | storefront, 前端, 组件, SEO, 结构化数据, 移动适配, 转化 |
+| 跨境扩张策略 | [skills/cross-border-expansion](skills/cross-border-expansion/SKILL.md) | cross-border, 跨境, 市场评分, VAT, IOSS, 物流, 关税 |
+| 支付集成 | [skills/payment-integration](skills/payment-integration/SKILL.md) | stripe, 订阅, 发票, 催款, dunning, 对账, 风控, Radar |
+| 店铺管理 | [skills/shopify-manager](skills/shopify-manager/SKILL.md) | shopify, 产品, GraphQL, 变体, CSV 导入, 批量上架 |
+| 前端搭建 | [skills/storefront-builder](skills/storefront-builder/SKILL.md) | storefront, 前端, 组件, SEO, 结构化数据, 移动适配, 转化 |
 
 > **路由规则**：要判断「该不该做、代价多少、上线前还差什么」→ 读 `references/`；
 > 要具体平台的具体写法与命令 → 调 `skills/`；要对现有商品流下客观判断 → 先跑 `scripts/`。
@@ -61,7 +61,7 @@ tags:
 
 放在 `scripts/`，纯标准库、可独立运行、`--help` 可用，不改被检文件、不联网：
 
-- `scripts/validate_product_feed.py --feed <file.csv|json>` — 按 `assets/product-feed-rules.json`
+- `scripts/validate_product_feed.py --feed <file.csv|json>` — 按 [assets/product-feed-rules.json](assets/product-feed-rules.json)
   校验商品信息流的必填字段、缺失令牌、数字/枚举约束，输出缺陷清单与计数。
 
 用法示例：
@@ -73,8 +73,8 @@ python3 scripts/validate_product_feed.py            # 仅自检规则模板（�
 
 ## 模板资源（assets/）
 
-- `assets/product-feed-rules.json` — 商品信息流校验规则（含 `_comment`/`_note` 注释键）
-- `assets/sample-product-feed.csv` — 合规样例商品流（0 缺陷，用作对照）
+- [assets/product-feed-rules.json](assets/product-feed-rules.json) — 商品信息流校验规则（含 `_comment`/`_note` 注释键）
+- [assets/sample-product-feed.csv](assets/sample-product-feed.csv) — 合规样例商品流（0 缺陷，用作对照）
 
 ## 适用场景
 

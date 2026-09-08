@@ -56,7 +56,7 @@ metadata:
 
 ## 相关参考（Playbook）
 
-批量导入前先用 `scripts/validate_product_feed.py` 校验商品流（规则见 `assets/product-feed-rules.json`）；
+批量导入前先用 [scripts/validate_product_feed.py](../../scripts/validate_product_feed.py) 校验商品流（规则见 [assets/product-feed-rules.json](../../assets/product-feed-rules.json)）；
 校验命令、缺陷判定与「商品数据进生产前」的上线清单见 [`references/storefront-launch-playbook.md`](../../references/storefront-launch-playbook.md) 第 3.4 节与第 7 节。
 
 ## 限制

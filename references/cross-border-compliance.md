@@ -1,6 +1,6 @@
 # 跨境电商合规手册（Cross-border Compliance Playbook）
 
-> 配套 `skills/cross-border-expansion`。本篇聚焦「落地前必须搞清楚的税务与海关合规」，
+> 配套 [skills/cross-border-expansion](../skills/cross-border-expansion/SKILL.md)。本篇聚焦「落地前必须搞清楚的税务与海关合规」，
 > 这是子技能正文装不下的决策增量：按国家给出注册阈值、申报路径与豁免规则。
 > 本文为方向性指引，不构成法律/税务意见；大额业务须咨询持牌顾问。
 
@@ -90,7 +90,7 @@ print(needs_registration("UK", 90000))   # True
 
 **解读**：VAT 通常向买家代收并全额上缴，不进毛利；真正吃掉利润的是关税 + 运费 + 手续费。
 若想维持 30% 毛利，标价需反推：`标价 = (货本 + 运费) / (1 - 关税率 - 支付费率 - 目标毛利)`，
-再叠加代收 VAT。把这套公式固化成 `skills/cross-border-expansion` 的落地成本表，
+再叠加代收 VAT。把这套公式固化成 [skills/cross-border-expansion](../skills/cross-border-expansion/SKILL.md) 的落地成本表，
 每次扩张新市场只换税率参数。
 
 ## 5. 各市场税率与阈值速查表
@@ -142,6 +142,6 @@ print(needs_registration("UK", 90000))   # True
 
 ## 8. 与路由的衔接
 
-- 市场选择 → 见 `skills/cross-border-expansion` 的 8 维度评分矩阵
-- 支付本地化（如 EU 偏好 iDEAL、SEPA）→ 见 `references/payment-integration-checklist.md`
-- 落地成本建模 → 复用 `skills/cross-border-expansion` 的落地成本计算框架
+- 市场选择 → 见 [skills/cross-border-expansion](../skills/cross-border-expansion/SKILL.md) 的 8 维度评分矩阵
+- 支付本地化（如 EU 偏好 iDEAL、SEPA）→ 见 [references/payment-integration-checklist.md](payment-integration-checklist.md)
+- 落地成本建模 → 复用 [skills/cross-border-expansion](../skills/cross-border-expansion/SKILL.md) 的落地成本计算框架

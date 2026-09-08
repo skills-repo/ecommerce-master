@@ -1,6 +1,6 @@
 # 支付集成检查清单（Payment Integration Checklist）
 
-> 配套 `skills/payment-integration`。把「Stripe 全生命周期」拆成可勾选的上线前清单，
+> 配套 [skills/payment-integration](../skills/payment-integration/SKILL.md)。把「Stripe 全生命周期」拆成可勾选的上线前清单，
 > 并给出可直接执行的命令与最小可运行代码。子技能正文讲能力，本篇讲「别漏哪一步」。
 
 ## 1. 决策树：我该用哪种接入方式？
@@ -71,7 +71,7 @@ def verify(raw_body: bytes, sig: str, secret: str) -> bool:
 ```
 
 ### 3.4 用脚本核对费率与对账（确定性）
-复用 `scripts/validate_product_feed.py` 的同款「只读 + 标准库」思路，
+复用 [scripts/validate_product_feed.py](../scripts/validate_product_feed.py) 的同款「只读 + 标准库」思路，
 对账可写 `reconcile_payouts.py`：读 Stripe 导出的 `payouts.csv` 与 `balance_transactions.csv`，
 按 `available_on` 汇总，确认每笔 payout 的净额 = 收入 − 手续费 − 退款。
 
@@ -113,7 +113,7 @@ curl https://api.stripe.com/v1/refunds \
    让 Price 的 currency 决定结账币种，不要硬写。
 4. **Dunning 缺失**：支付失败不催款，默默流失 → 开启
    `subscription.settings.payment_method.configuration` 的 smart retries（默认 4 次/间隔递增）。
-5. **税务未接**：欧盟订单没代收 VAT → 见 `references/cross-border-compliance.md`。
+5. **税务未接**：欧盟订单没代收 VAT → 见 [references/cross-border-compliance.md](cross-border-compliance.md)。
 6. **退款不退还税费/运费**：部分平台只退商品价 → 按当地法规退「含税含运」或明确告知。
 7. **Test 卡上生产**：用 `4242...` 测试卡却指向 live key → 永远用
    `STRIPE_SECRET_KEY` 环境变量区分模式，配置错误就启动失败。
@@ -154,6 +154,6 @@ curl https://api.stripe.com/v1/refunds \
 
 ## 8. 与路由的衔接
 
-- 税务细节 → `references/cross-border-compliance.md`
-- 结账前端体验 → `references/storefront-launch-playbook.md`（结账流程组件）
-- 完整能力 → `skills/payment-integration`
+- 税务细节 → [references/cross-border-compliance.md](cross-border-compliance.md)
+- 结账前端体验 → [references/storefront-launch-playbook.md](storefront-launch-playbook.md)（结账流程组件）
+- 完整能力 → [skills/payment-integration](../skills/payment-integration/SKILL.md)

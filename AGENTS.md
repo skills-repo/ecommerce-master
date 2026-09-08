@@ -6,10 +6,10 @@
 
 | 技能 | 文件 | 用途 |
 |------|------|------|
-| cross-border-expansion | `skills/cross-border-expansion/SKILL.md` | 跨境电商扩张策略 |
-| payment-integration | `skills/payment-integration/SKILL.md` | Stripe 支付与订阅集成 |
-| storefront-builder | `skills/storefront-builder/SKILL.md` | 电商前端最佳实践 |
-| shopify-manager | `skills/shopify-manager/SKILL.md` | Shopify 产品管理 |
+| cross-border-expansion | [skills/cross-border-expansion/SKILL.md](skills/cross-border-expansion/SKILL.md) | 跨境电商扩张策略 |
+| payment-integration | [skills/payment-integration/SKILL.md](skills/payment-integration/SKILL.md) | Stripe 支付与订阅集成 |
+| storefront-builder | [skills/storefront-builder/SKILL.md](skills/storefront-builder/SKILL.md) | 电商前端最佳实践 |
+| shopify-manager | [skills/shopify-manager/SKILL.md](skills/shopify-manager/SKILL.md) | Shopify 产品管理 |
 
 ## 适用场景
 

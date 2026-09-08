@@ -1,6 +1,6 @@
 # 前端上线手册（Storefront Launch Playbook）
 
-> 配套 `skills/storefront-builder`。把「高转化电商前端」落成一份可勾选的上线清单，
+> 配套 [skills/storefront-builder](../skills/storefront-builder/SKILL.md)。把「高转化电商前端」落成一份可勾选的上线清单，
 > 含组件优先级、SEO 结构化数据、移动适配与性能门槛。子技能讲模式，本篇讲「上线前别漏」。
 
 ## 1. 决策树：先搭哪个组件？
@@ -137,7 +137,7 @@ Lighthouse 只用于本地回归。
 ## 国际化与多语言（i18n）
 
 - URL 用 `/{locale}/` 或 `?lang=`，配合 `hreflang` 标注互为翻译版本，避免 SEO 互相竞争。
-- 价格/币种跟随 locale，但税务按收货国算（见 `references/cross-border-compliance.md`），
+- 价格/币种跟随 locale，但税务按收货国算（见 [references/cross-border-compliance.md](cross-border-compliance.md)），
   两者解耦：展示币种 ≠ 征税辖区。
 - 文案长度差异：德文比英文长约 30%，UI 容器留弹性，别写死宽度导致换行截断。
 - 数字/日期本地化：`Intl.NumberFormat` / `Intl.DateTimeFormat`，别手工拼格式。
@@ -151,7 +151,7 @@ Lighthouse 只用于本地回归。
 - [ ] 主图 WebP/AVIF + 首屏 `fetchpriority="high"`，下方 `loading="lazy"`
 - [ ] 移动端触控目标 ≥44px，底部安全区已处理
 - [ ] 结账支持游客模式，步骤 ≤3
-- [ ] 商品信息流已用 `scripts/validate_product_feed.py` 校验 0 缺陷
+- [ ] 商品信息流已用 [scripts/validate_product_feed.py](../scripts/validate_product_feed.py) 校验 0 缺陷
 - [ ] canonical / 分页语义已配置，无重复内容
 - [ ] 字段数据 Core Web Vitals（LCP/INP/CLS）p75 达标
 - [ ] 信任信号（退货/安全支付）在详情页与结账页可见
@@ -159,7 +159,7 @@ Lighthouse 只用于本地回归。
 
 ## 8. 与路由的衔接
 
-- 商品数据接入 Shopify → `skills/shopify-manager`
-- 支付/订阅结账 → `references/payment-integration-checklist.md`
-- 跨境税务与货币 → `references/cross-border-compliance.md`
-- 完整组件模式 → `skills/storefront-builder`
+- 商品数据接入 Shopify → [skills/shopify-manager](../skills/shopify-manager/SKILL.md)
+- 支付/订阅结账 → [references/payment-integration-checklist.md](payment-integration-checklist.md)
+- 跨境税务与货币 → [references/cross-border-compliance.md](cross-border-compliance.md)
+- 完整组件模式 → [skills/storefront-builder](../skills/storefront-builder/SKILL.md)
