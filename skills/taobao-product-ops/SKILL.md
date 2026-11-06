@@ -233,3 +233,10 @@ node audit.mjs     # 4 复验——同一条判据必须再看一次，改没改
 另外两处结构差异值得记住：发布页第 3 组是**白底图**（1 槽，DOM 里没有任何标签文本，只能按序号 `--gi 2` 定位，
 且白底图规范不接受叠字，用官方单机渲染而不是信息卡）；档位级搜索标题走
 `.next-drawer` 详情抽屉，面板里 `input[0]=SKU搜索标题`、`input[1]=价格`、`input[2]=数量`、`input[3]=商家编码`。
+
+**第 5 步是收尾，不是可选项**：`node tools/taobao-publish/tabs.mjs --close`。CDP 接管的是用户可见的窗口，
+脚本自己开的标签页断开连接也不会消失，堆在那儿就是给别人留垃圾（2026-11-06 被明确反馈过一次）。
+工具层的规矩是「谁 `newPage()` 谁负责关」，复用别人已打开的页面则不要关；
+注意 `process.exit()` 会跳过 `finally`，dry-run/失败分支要自己关。
+**别关到剩 0 个标签页**——那样 `connectOverCDP` 会报 `Browser context management is not supported`，
+自己把门锁上（`tabs.mjs --close` 已内置保留 1 页的保护；恢复用 `curl -X PUT "http://127.0.0.1:9222/json/new?<url>"`）。
