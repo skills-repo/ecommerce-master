@@ -240,3 +240,19 @@ node audit.mjs     # 4 复验——同一条判据必须再看一次，改没改
 注意 `process.exit()` 会跳过 `finally`，dry-run/失败分支要自己关。
 **别关到剩 0 个标签页**——那样 `connectOverCDP` 会报 `Browser context management is not supported`，
 自己把门锁上（`tabs.mjs --close` 已内置保留 1 页的保护；恢复用 `curl -X PUT "http://127.0.0.1:9222/json/new?<url>"`）。
+
+## 改「七天退货」这类服务开关：三个同名模板行 + 一个极性坑（2026-11-06 实测）
+
+- 发布页**同时渲染三行**：`#sell-field-sevenDaySupport`（必须支持，hidden+disabled）、
+  `#sell-field-sevenDayNotSupport`（不支持，hidden+disabled）、`#sell-field-sevenDayOptional`（可支持，**唯一可点**）。
+  按文字「七天退货」去定位会命中禁用行 —— 我的 `--bool` 第一版就是这样：没点到任何东西，
+  却因为回读到 `checked=false` 而打印了 ✓。**假阳性的根源是"用当前状态当操作结果"**。
+  规矩：定位一律用元素 id；只接受「可见 + 有尺寸 + 未 disabled」的控件；
+  日志要同时给出 `before` 与 `after`，两者相同就明写「本来就是这个状态，未点击」。
+- **买家页判服务要看极性**：关闭后页面文案是「退货宝不支持7天无理由退货」，
+  裸正则 `/7天无理由|七天退货/` 依然为真。判据必须先用 `不支持…` 反向排除，再判存在。
+- **类目给的是「可支持」= 卖家可选**，不是强制（强制那一行是隐藏禁用态）。所以开/关都合规，
+  但**质量与描述不符的退货义务不因关闭而减少**，运费责任仍按判定结果走。
+- 关服务属于「改一处要同步三处」：`sell-field-sevenDayOptional` 勾选、`购买须知`(purchaseTips)、
+  内容包 `detail`/`purchase_note`（以及据此生成的详情图文字）。任一不同步就是自相矛盾的描述。
+  `audit.mjs` 现在有两条判据盯着：策略 vs 标签、须知 vs 标签。
